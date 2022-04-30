@@ -1,10 +1,11 @@
 // Copyright 2022 NNTU-CS
 #ifndef INCLUDE_TPQUEUE_H_
 #define INCLUDE_TPQUEUE_H_
+#include <string>>
 
 template<typename T>
 class TPQueue {
-  private:
+ private:
   struct ITEM {
     T value;
     ITEM* next, * previous;
@@ -17,7 +18,7 @@ class TPQueue {
     return item;
 }
  public:
-  TPQueue() : start(nullptr), end(nullptr) {} 
+  TPQueue() : start(nullptr), end(nullptr) {}
   T pop();
   void push(const T& value);
 };
@@ -54,7 +55,7 @@ void TPQueue<T>:: push(const T& value) {
     } else if (!temp && !start) {
       start = end = item;
     } else if (!temp->previous) {
-      start->prev = item;
+      start->previous = item;
       item->next = start;
       start = item;
     } else {
